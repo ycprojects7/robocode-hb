@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthdays, Robocode Georgia Founders!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue:   #1646FF;
+      --green:  #33F981;
+      --orange: #FF7939;
+      --yellow: #E5FB6D;
+      --white:  #FFFFFF;
+      --ink:    #0A163E;
+      --ink-50: rgba(10,22,62,.5);
+      --ink-12: rgba(10,22,62,.12);
+      --bg:     #F6F7FC;
+      --ease:   cubic-bezier(.22,1,.36,1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* ── reveal ──────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity .75s var(--ease), transform .75s var(--ease);
+    }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* ════════════════════════════════
+       NAV
+    ════════════════════════════════ */
+    nav {
+      position: sticky; top: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px; height: 62px;
+      background: rgba(246,247,252,.88);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--ink-12);
+    }
+
+    /* logo on blue pill */
+    .nav-logo-wrap {
+      display: inline-flex; align-items: center;
+      background: var(--blue);
+      border-radius: 12px;
+      padding: 8px 16px;
+      gap: 0;
+    }
+    .nav-logo-wrap img { height: 24px; width: auto; display: block; }
+
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+
+    .nav-tag {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: .76rem; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: var(--ink); background: var(--yellow);
+      border-radius: 999px; padding: 7px 16px;
+    }
+
+    /* ════════════════════════════════
+       PAGE
+    ════════════════════════════════ */
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 28px 120px;
+    }
+
+    /* ════════════════════════════════
+       HERO
+    ════════════════════════════════ */
+    .hero {
+      padding-top: 72px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+      padding-bottom: 72px;
+    }
+
+    /* ── left ── */
+    .hero-left { position: relative; }
+
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: .76rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 20px;
+    }
+    .eyebrow::before {
+      content: ''; width: 22px; height: 2.5px;
+      background: var(--blue); border-radius: 999px;
+    }
+
+    h1 {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: clamp(3rem, 5.2vw, 5rem);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -.025em;
+      color: var(--ink);
+    }
+
+    .h1-line2 {
+      display: inline-flex; align-items: center; gap: 14px;
+    }
+
+    /* yellow highlighter underline */
+    .h1-highlight {
+      position: relative; white-space: nowrap;
+    }
+    .h1-highlight::after {
+      content: '';
+      position: absolute; bottom: 3px; left: -2px; right: -2px;
+      height: 13px; background: var(--yellow);
+      z-index: -1; border-radius: 4px;
+    }
+
+    .hero-sub {
+      margin-top: 24px;
+      font-size: 1.05rem; font-weight: 300; line-height: 1.72;
+      color: var(--ink-50); max-width: 36ch;
+    }
+
+    /* pill tags */
+    .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 32px; }
+
+    .pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: .78rem; font-weight: 700;
+      letter-spacing: .06em; text-transform: uppercase;
+      padding: 9px 18px; border-radius: 999px;
+      transition: transform .2s var(--ease);
+    }
+    .pill:hover { transform: scale(1.05); }
+    .pill-blue   { background: var(--blue);   color: var(--white); }
+    .pill-green  { background: var(--green);  color: var(--ink); }
+    .pill-orange { background: var(--orange); color: var(--white); }
+
+    /* ── STICKERS around hero ── */
+    .sticker {
+      position: absolute;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-weight: 800; line-height: 1;
+      pointer-events: none; user-select: none;
+    }
+
+    .sticker-cake {
+      font-size: 3.6rem;
+      top: -14px; right: -12px;
+      animation: stickerFloat 4s ease-in-out infinite;
+    }
+
+    .h1-robot {
+      display: block;
+      font-size: 2.6rem;
+      margin-top: 8px;
+      animation: stickerFloat 5.5s ease-in-out infinite .3s;
+    }
+
+    .sticker-heart1 {
+      font-size: 2rem;
+      top: 10px; right: -8px;
+      animation: stickerFloat 4.2s ease-in-out infinite 1s;
+    }
+
+    .sticker-heart2 {
+      font-size: 1.4rem;
+      bottom: 50px; right: -14px;
+      animation: stickerFloat 3.8s ease-in-out infinite .4s;
+    }
+
+    /* big hearts above headline */
+    .big-hearts {
+      display: block;
+      font-size: 100px;
+      line-height: 1;
+      margin-bottom: 16px;
+      animation: stickerFloat 4s ease-in-out infinite .2s;
+    }
+
+    /* robot on the right side of hero */
+    .sticker-robot-right {
+      position: absolute;
+      font-size: 2.6rem;
+      top: 30%; right: -48px;
+      pointer-events: none; user-select: none;
+      animation: stickerFloat 5s ease-in-out infinite .7s;
+    }
+
+    @media (max-width: 860px) {
+      .sticker-robot-right { display: none; }
+    }
+
+    /* heart overlay on photos */
+    .photo-heart {
+      position: absolute;
+      top: 10px; right: 10px;
+      font-size: 1.6rem;
+      z-index: 5;
+      animation: heartBeat 2.2s ease-in-out infinite;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,.25));
+    }
+
+    @keyframes heartBeat {
+      0%, 100% { transform: scale(1); }
+      20%       { transform: scale(1.3); }
+      40%       { transform: scale(1); }
+      60%       { transform: scale(1.15); }
+    }
+
+    @keyframes stickerFloat {
+      0%, 100% { transform: translateY(0) rotate(-4deg); }
+      50%       { transform: translateY(-10px) rotate(4deg); }
+    }
+
+    /* ── right: photos ── */
+    .hero-right {
+      position: relative;
+      height: 500px;
+    }
+
+    /* ambient glow */
+    .hero-right::before {
+      content: '';
+      position: absolute; inset: -20px;
+      background: radial-gradient(ellipse at 60% 40%, rgba(22,70,255,.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .photo-frame {
+      position: absolute;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 5px solid var(--white);
+      box-shadow: 0 20px 50px rgba(10,22,62,.16), 0 0 0 1px var(--ink-12);
+    }
+
+    .photo-frame img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      display: block;
+    }
+
+    .photo-albina {
+      width: 47%; aspect-ratio: 3/4;
+      top: 50%; left: 0;
+      transform: translateY(-50%);
+      z-index: 2;
+      animation: photoHoverA 6s ease-in-out infinite;
+    }
+
+    .photo-anna {
+      width: 47%; aspect-ratio: 3/4;
+      top: 50%; right: 0;
+      transform: translateY(-50%);
+      z-index: 2;
+      animation: photoHoverB 6s ease-in-out infinite .9s;
+    }
+
+    @keyframes photoHoverA {
+      0%, 100% { transform: translateY(-50%); }
+      50%       { transform: translateY(calc(-50% - 8px)); }
+    }
+
+    @keyframes photoHoverB {
+      0%, 100% { transform: translateY(-50%); }
+      50%       { transform: translateY(calc(-50% - 8px)); }
+    }
+
+    .photo-name {
+      position: absolute; bottom: 12px; left: 12px;
+      background: rgba(10,22,62,.68);
+      backdrop-filter: blur(10px);
+      color: var(--white);
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: .72rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      padding: 6px 14px; border-radius: 999px;
+    }
+
+    /* stickers on the photo stack */
+    .badge-sticker {
+      position: absolute;
+      display: flex; align-items: center; justify-content: center; flex-direction: column;
+      text-align: center;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-weight: 800; line-height: 1.1;
+      border-radius: 50%;
+      box-shadow: 0 10px 28px rgba(10,22,62,.2);
+      z-index: 10;
+    }
+
+    .badge-hooray {
+      width: 92px; height: 92px;
+      background: var(--yellow); color: var(--ink);
+      font-size: .72rem; letter-spacing: .05em; text-transform: uppercase;
+      top: -18px; right: 8px;
+      transform: rotate(12deg);
+      animation: badgePulse 3s ease-in-out infinite;
+    }
+
+    .badge-founders {
+      width: 86px; height: 86px;
+      background: var(--green); color: var(--ink);
+      font-size: .66rem; letter-spacing: .05em; text-transform: uppercase;
+      bottom: -10px; left: 4px;
+      transform: rotate(-9deg);
+      animation: badgePulse 3s ease-in-out infinite .7s;
+    }
+
+    @keyframes badgePulse {
+      0%, 100% { box-shadow: 0 10px 28px rgba(10,22,62,.2); }
+      50%       { box-shadow: 0 16px 40px rgba(10,22,62,.3); transform: rotate(12deg) scale(1.06); }
+    }
+    .badge-founders { animation-name: badgePulseAlt; }
+    @keyframes badgePulseAlt {
+      0%, 100% { box-shadow: 0 10px 28px rgba(10,22,62,.2); }
+      50%       { box-shadow: 0 16px 40px rgba(10,22,62,.3); transform: rotate(-9deg) scale(1.06); }
+    }
+
+    .eyes-sticker {
+      position: absolute;
+      width: 84px;
+      top: 42%; right: -16px; z-index: 11;
+      filter: drop-shadow(0 6px 16px rgba(10,22,62,.2));
+      animation: wobble 4s ease-in-out infinite;
+    }
+
+    @keyframes wobble {
+      0%, 100% { transform: rotate(-6deg) scale(1); }
+      35%       { transform: rotate(8deg)  scale(1.05); }
+      65%       { transform: rotate(-3deg) scale(.97); }
+    }
+
+    /* ── scroll arrow ── */
+    .scroll-arrow {
+      display: flex;
+      justify-content: center;
+      padding: 8px 0 24px;
+    }
+
+    .scroll-arrow svg-wrap {
+      display: none;
+    }
+
+    .scroll-arrow-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: var(--white);
+      box-shadow: 0 8px 24px rgba(22,70,255,.35);
+      animation: arrowBounce 2s ease-in-out infinite;
+    }
+
+    @keyframes arrowBounce {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(7px); }
+    }
+
+    /* ════════════════════════════════
+       TICKER
+    ════════════════════════════════ */
+    .ticker-outer {
+      margin: 0 -28px;
+      overflow: hidden;
+      border-top: 1px solid var(--ink-12);
+      border-bottom: 1px solid var(--ink-12);
+      padding: 14px 0;
+    }
+
+    .ticker-track {
+      display: flex; white-space: nowrap;
+      animation: ticker 20s linear infinite;
+    }
+
+    .ti {
+      display: inline-flex; align-items: center; gap: 18px;
+      padding: 0 28px;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: .82rem; font-weight: 700;
+      letter-spacing: .13em; text-transform: uppercase;
+      color: var(--ink-50);
+    }
+
+    .ti .dot {
+      display: inline-block;
+      width: 7px; height: 7px; border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ════════════════════════════════
+       BLUE BAND  (fun color break)
+    ════════════════════════════════ */
+    .blue-band {
+      margin: 64px 0;
+      background: var(--blue);
+      border-radius: 32px;
+      padding: 52px 28px;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 12px;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+
+    .blue-band::before, .blue-band::after {
+      content: '';
+      position: absolute; border-radius: 50%;
+      background: rgba(255,255,255,.06);
+    }
+    .blue-band::before { width: 460px; height: 460px; right: -160px; top: -160px; }
+    .blue-band::after  { width: 300px; height: 300px; left: -80px; bottom: -100px; }
+
+    .band-cake { font-size: 3.8rem; position: relative; z-index: 1; animation: stickerFloat 3s ease-in-out infinite; }
+
+    .band-headline {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      font-weight: 800; letter-spacing: -.025em;
+      color: var(--white); line-height: 1.05;
+      position: relative; z-index: 1;
+    }
+
+    .band-headline .accent { color: var(--yellow); }
+
+    .band-sub {
+      font-size: 1rem; font-weight: 300;
+      color: rgba(255,255,255,1);
+      max-width: 44ch; line-height: 1.65;
+      position: relative; z-index: 1;
+    }
+
+    /* ════════════════════════════════
+       MESSAGES
+    ════════════════════════════════ */
+    .sec-label {
+      display: flex; align-items: center; gap: 14px;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: .76rem; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--ink-50); margin-bottom: 36px;
+    }
+    .sec-label::before, .sec-label::after { content: ''; flex: 1; height: 1px; background: var(--ink-12); }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 22px;
+      border: 1px solid var(--ink-12);
+      overflow: hidden;
+      transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+      position: relative;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 56px rgba(10,22,62,.1);
+    }
+
+    /* colored stripe top */
+    .card-stripe { height: 6px; }
+    .card-mari  .card-stripe { background: var(--blue); }
+    .card-sofi  .card-stripe { background: var(--orange); }
+    .card-mzia  .card-stripe { background: #FF6EB4; }
+    .card-nino  .card-stripe { background: var(--green); }
+    .card-ninoz .card-stripe { background: var(--orange); }
+    .card-yana   .card-stripe { background: var(--yellow); }
+    .card-saba    .card-stripe { background: var(--blue); }
+    .card-sandro  .card-stripe { background: var(--orange); }
+    .card-mariam    .card-stripe { background: var(--green); }
+    .card-anastasia .card-stripe { background: #FF6EB4; }
+
+    /* little floating emoji sticker on card */
+    .card-sticker {
+      position: absolute;
+      top: 14px; right: 16px;
+      font-size: 1.6rem;
+      animation: stickerFloat 4.5s ease-in-out infinite;
+    }
+
+    .card-inner { padding: 24px; }
+
+    .card-author {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .card-avatar {
+      width: 42px; height: 42px; border-radius: 50%;
+      overflow: hidden; flex-shrink: 0;
+      background: var(--bg);
+      border: 2px solid var(--ink-12);
+    }
+    .card-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .card-name {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: .9rem; font-weight: 700; color: var(--ink);
+    }
+    .card-role { font-size: .74rem; color: var(--ink-50); margin-top: 1px; }
+
+    .card-msg {
+      font-size: .92rem; line-height: 1.7; color: var(--ink);
+      font-weight: 400;
+    }
+    .card-msg + .card-msg {
+      margin-top: 14px; padding-top: 14px;
+      border-top: 1px solid var(--ink-12);
+    }
+
+    /* ════════════════════════════════
+       CLOSING
+    ════════════════════════════════ */
+    .closing {
+      margin-top: 64px;
+      background: var(--ink);
+      border-radius: 28px;
+      padding: 60px;
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 32px;
+      overflow: hidden; position: relative;
+    }
+
+    .closing::after {
+      content: '';
+      position: absolute; top: -120px; right: -120px;
+      width: 380px; height: 380px; border-radius: 50%;
+      background: radial-gradient(circle, var(--blue) 0%, transparent 70%);
+      opacity: .4; pointer-events: none;
+    }
+
+    .closing-left { position: relative; z-index: 1; }
+
+    .closing-overline {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: .75rem; font-weight: 700;
+      letter-spacing: .16em; text-transform: uppercase;
+      color: var(--green); margin-bottom: 14px;
+    }
+
+    .closing-headline {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: clamp(1.8rem, 3.4vw, 3rem);
+      font-weight: 800; letter-spacing: -.025em;
+      line-height: 1.05; color: var(--white);
+    }
+    .closing-headline .y { color: var(--yellow); }
+
+    .closing-hearts {
+      font-size: 2.8rem;
+      animation: heartBeat 2.2s ease-in-out infinite;
+    }
+
+    .closing-right {
+      position: relative; z-index: 1;
+      display: flex; flex-direction: column;
+      align-items: flex-end; gap: 20px; flex-shrink: 0;
+    }
+
+    /* logo on blue pill in closing */
+    .closing-logo-wrap {
+      display: inline-flex; align-items: center;
+      background: var(--blue); border-radius: 12px;
+      padding: 10px 20px;
+    }
+    .closing-logo-wrap img { height: 26px; width: auto; display: block; }
+
+    .palette {
+      display: flex; gap: 8px;
+    }
+    .pal-dot {
+      width: 18px; height: 18px; border-radius: 50%;
+    }
+
+    /* ════════════════════════════════
+       FOOTER
+    ════════════════════════════════ */
+    footer {
+      text-align: center;
+      padding: 40px 0 28px;
+      font-size: .8rem; color: var(--ink-50);
+    }
+
+    /* ════════════════════════════════
+       RESPONSIVE
+    ════════════════════════════════ */
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; gap: 24px; }
+      .hero-right { height: 420px; max-width: 400px; margin: 0 auto; width: 100%; }
+      .badge-hooray { top: 8px; }
+      .cards { grid-template-columns: 1fr; }
+
+      .closing { flex-direction: column; align-items: flex-start; padding: 40px 32px; }
+      .closing-right { align-items: flex-start; }
+    }
+    @media (max-width: 540px) {
+      nav { padding: 0 20px; }
+      .page { padding: 0 16px 80px; }
+      .scroll-arrow { margin-top: -100px; }
+      .hero { padding-top: 24px; padding-bottom: 24px; gap: 10px; }
+      .hero-right { height: 340px; }
+      .badge-hooray { top: 8px; width: 76px; height: 76px; font-size: .64rem; }
+      .blue-band { margin: 48px 0; padding: 40px 20px; border-radius: 24px; }
+      .ticker-outer { margin: 0 -16px; }
+      .closing { border-radius: 20px; padding: 32px 24px; }
+      .tags { margin-top: 12px; gap: 5px; flex-wrap: nowrap; }
+      .pill { font-size: .62rem; padding: 5px 10px; gap: 3px; letter-spacing: .02em; }
+      .hero-left { padding-bottom: 0; }
+      .hero-sub { display: none; }
+      h1 { font-size: 2.6rem; }
+    }
+  /* ════════════════════════════════
+     SPLASH
+  ════════════════════════════════ */
+  #splash {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+  }
+
+  .splash-half {
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 50%;
+    background: var(--blue);
+    transition: transform .7s cubic-bezier(.76,0,.24,1);
+  }
+
+  .splash-left  { left: 0; }
+  .splash-right { right: 0; }
+
+  #splash.open .splash-left  { transform: translateX(-100%); }
+  #splash.open .splash-right { transform: translateX(100%); }
+
+  #splash-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    pointer-events: none;
+    transition: opacity .25s ease;
+  }
+
+  #splash.open #splash-content { opacity: 0; }
+
+  #splash-logo {
+    height: 36px;
+    width: auto;
+    opacity: .9;
+  }
+
+  #splash-count {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: clamp(6rem, 22vw, 14rem);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+    letter-spacing: -.04em;
+  }
+
+  #splash-count.pop {
+    animation: countPop .35s var(--ease) forwards;
+  }
+
+  @keyframes countPop {
+    0%   { transform: scale(.7);  opacity: 0; }
+    60%  { transform: scale(1.12); opacity: 1; }
+    100% { transform: scale(1);   opacity: 1; }
+  }
+  </style>
+</head>
+<body>
+
+  <!-- ── SPLASH SCREEN ────────────────────────── -->
+  <div id="splash">
+    <div class="splash-half splash-left"></div>
+    <div class="splash-half splash-right"></div>
+    <div id="splash-content">
+      <img src="photos/robocode logo.png" alt="Robocode" id="splash-logo">
+      <div id="splash-count">3</div>
+    </div>
+  </div>
+
+  <!-- ── NAV ─────────────────────────────────── -->
+  <nav>
+    <div class="nav-logo-wrap">
+      <img src="photos/robocode logo.png" alt="Robocode">
+    </div>
+    <div class="nav-right">
+      <span class="nav-tag">🎂 Happy Birthday</span>
+    </div>
+  </nav>
+
+  <div class="page">
+
+    <!-- ── HERO ─────────────────────────────── -->
+    <section class="hero">
+
+      <div class="hero-left reveal">
+        <div class="sticker sticker-cake">🎂</div>
+        <div class="sticker sticker-heart1">🩷</div>
+        <div class="sticker sticker-heart2">❤️</div>
+
+        <span class="big-hearts">💙💛</span>
+
+        <div class="eyebrow">Robocode Georgia</div>
+
+        <h1>
+          <span style="white-space:nowrap">Happy Birthdays,</span><br>
+          <span class="h1-line2">
+            Dear <span class="h1-highlight">Founders!</span>
+          </span>
+          <span class="h1-robot">🤖</span>
+        </h1>
+
+        <p class="hero-sub">Celebrating Albina & Anna — the people who built something incredible — on their special day.</p>
+
+        <div class="tags">
+          <span class="pill pill-blue">🎉 Happy Birthday</span>
+          <span class="pill pill-green">💛 Best Wishes</span>
+          <span class="pill pill-orange">🚀 Keep Building</span>
+        </div>
+      </div>
+
+      <div class="hero-right reveal" style="transition-delay:.14s; position:relative;">
+        <div class="sticker-robot-right">🤖</div>
+        <div class="photo-frame photo-albina">
+          <img src="photos/Albina.png" alt="Albina">
+          <span class="photo-name">Albina</span>
+          <span class="photo-heart">💙</span>
+        </div>
+        <div class="photo-frame photo-anna">
+          <img src="photos/Anna.png" alt="Anna">
+          <span class="photo-name">Anna</span>
+          <span class="photo-heart">💛</span>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ── SCROLL ARROW ──────────────────────── -->
+    <div class="scroll-arrow" aria-hidden="true">
+      <div class="scroll-arrow-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M12 5v14M5 13l7 7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- ── TICKER ─────────────────────────────── -->
+    <div class="ticker-outer reveal" aria-hidden="true">
+      <div class="ticker-track">
+        <span class="ti">Happy Birthday <span class="dot" style="background:var(--blue)"></span></span>
+        <span class="ti">Robocode Georgia <span class="dot" style="background:var(--green)"></span></span>
+        <span class="ti">Founders Day <span class="dot" style="background:var(--orange)"></span></span>
+        <span class="ti">Hip Hip Hooray <span class="dot" style="background:var(--yellow)"></span></span>
+        <span class="ti">Happy Birthday <span class="dot" style="background:var(--blue)"></span></span>
+        <span class="ti">Robocode Georgia <span class="dot" style="background:var(--green)"></span></span>
+        <span class="ti">Founders Day <span class="dot" style="background:var(--orange)"></span></span>
+        <span class="ti">Hip Hip Hooray <span class="dot" style="background:var(--yellow)"></span></span>
+        <!-- dupe -->
+        <span class="ti">Happy Birthday <span class="dot" style="background:var(--blue)"></span></span>
+        <span class="ti">Robocode Georgia <span class="dot" style="background:var(--green)"></span></span>
+        <span class="ti">Founders Day <span class="dot" style="background:var(--orange)"></span></span>
+        <span class="ti">Hip Hip Hooray <span class="dot" style="background:var(--yellow)"></span></span>
+        <span class="ti">Happy Birthday <span class="dot" style="background:var(--blue)"></span></span>
+        <span class="ti">Robocode Georgia <span class="dot" style="background:var(--green)"></span></span>
+        <span class="ti">Founders Day <span class="dot" style="background:var(--orange)"></span></span>
+        <span class="ti">Hip Hip Hooray <span class="dot" style="background:var(--yellow)"></span></span>
+      </div>
+    </div>
+
+    <!-- ── BLUE BAND ──────────────────────────── -->
+    <div class="blue-band reveal">
+      <div class="band-cake">🎂</div>
+      <h2 class="band-headline">
+        Albina & Anna —<br>you are <span class="accent">absolutely</span> amazing! 💙💛
+      </h2>
+      <p class="band-sub">
+        Two incredible women, one beautiful mission. Thank you for pouring your hearts into everything you do — the whole team is so lucky to have you! 🥰
+      </p>
+    </div>
+
+    <!-- ── MESSAGES ──────────────────────────── -->
+    <section>
+      <div class="sec-label reveal">Wishes from the team</div>
+
+      <div class="cards">
+
+        <article class="card card-saba reveal" style="transition-delay:.05s">
+          <div class="card-stripe"></div>
+          <span class="card-sticker">🌟</span>
+          <div class="card-inner">
+            <div class="card-author">
+              <div class="card-avatar"><img src="photos/Saba.png" alt="Saba"></div>
+              <div>
+                <div class="card-name">Saba</div>
+              </div>
+            </div>
+            <p class="card-msg">Miss Albina, happy birthday to you! Wish you all the best with health, luck, success and to have a wonderful time with your family and friends.</p>
+            <p class="card-msg">Miss Ana, happy birthday to you! Wish you all the best with health, luck, success and to have a peaceful and wonderful time with your family and friends.</p>
+          </div>
+        </article>
+
+        <article class="card card-sandro reveal" style="transition-delay:.12s">
+          <div class="card-stripe"></div>
+          <span class="card-sticker">♥️</span>
+          <div class="card-inner">
+            <div class="card-author">
+              <div class="card-avatar"><img src="photos/Sandro.png" alt="Sandro"></div>
+              <div>
+                <div class="card-name">Sandro</div>
+              </div>
+            </div>
+            <p class="card-msg">Happy birthday Albina & Anna, wish you all the best from the bottom of my heart. Wish you happiness with those you love ♥️</p>
+          </div>
+        </article>
+
+        <article class="card card-mari reveal" style="transition-delay:.2s">
+          <div class="card-stripe"></div>
+          <span class="card-sticker">💙</span>
+          <div class="card-inner">
+            <div class="card-author">
+              <div class="card-avatar"><img src="photos/Mari Kurdadze.png" alt="Mari Kurdadze"></div>
+              <div>
+                <div class="card-name">Mari Kurdadze</div>
+              </div>
+            </div>
+            <p class="card-msg">Happy Birthday! Wishing you a wonderful day filled with happiness and a year ahead full of success, new opportunities, and great achievements. Thank you for your support and leadership. May this year bring you even more inspiration and exciting moments.</p>
+          </div>
+        </article>
+
+        <article class="card card-sofi reveal" style="transition-delay:.12s">
+          <div class="card-stripe"></div>
+          <span class="card-sticker">🧡</span>
+          <div class="card-inner">
+            <div class="card-author">
+              <div class="card-avatar"><img src="photos/Sofi.png" alt="Sofi"></div>
+              <div>
+                <div class="card-name">Sofi</div>
+              </div>
+            </div>
+            <p class="card-msg">Albina and Ana are the most caring people I know and I wish them best, may their lives be full of love and happiness! With love from Sofia.</p>
+          </div>
+        </article>
+
+        <article class="card card-mzia reveal" style="transition-delay:.2s">
+          <div class="card-stripe"></div>
+          <span class="card-sticker">🩷</span>
+          <div class="card-inner">
+            <div class="card-author">
+              <div class="card-avatar"><img src="photos/Mzia.png" alt="Mzia"></div>
+              <div>
+                <div class="card-name">Mzia</div>
+              </div>
+            </div>
+            <p class="card-msg">Meine Liebe! 🩷 Albina and Anna, Happy birthday! From the bottom of my heart, I wish you happiness, success in everything you do, and that all your deepest dreams come true. You are the best.</p>
+          </div>
+        </article>
+
+        <article class="card card-nino reveal" style="transition-delay:.28s">
+          <div class="card-stripe"></div>
+          <span class="card-sticker">💚</span>
+          <div class="card-inner">
+            <div class="card-author">
+              <div class="card-avatar"><img src="photos/Nino Chitaia.png" alt="Nino Chitaia"></div>
+              <div>
+                <div class="card-name">Nino Chitaia</div>
+              </div>
+            </div>
+            <p class="card-msg">Dear Albina, Happy Birthday! 🎈 May your day be full of joy and surrounded by people who care about you. I hope the year ahead brings you success, good health, and lots of beautiful moments. Never stop chasing your dreams and believing in yourself!</p>
+            <p class="card-msg">Dear Anna, Happy Birthday! 💕💥 Wishing you a wonderful day and a year ahead filled with success, happiness, and great achievements. It's always a pleasure working with you. Enjoy your special day! 🎀🪄</p>
+          </div>
+        </article>
+
+        <article class="card card-ninoz reveal" style="transition-delay:.36s">
+          <div class="card-stripe"></div>
+          <span class="card-sticker">🥰</span>
+          <div class="card-inner">
+            <div class="card-author">
+              <div class="card-avatar"><img src="photos/Nino Zautashvili.png" alt="Nino Zautashvili"></div>
+              <div>
+                <div class="card-name">Nino Zautashvili</div>
+              </div>
+            </div>
+            <p class="card-msg">Dear Albina, warm birthday wishes! May this special day bring you joy and the coming year bring happiness and good health 🥰✨️</p>
+            <p class="card-msg">Happy birthday, Ana! Wishing you a lovely day, good health, and many pleasant surprises throughout the year ✨️❤️</p>
+          </div>
+        </article>
+
+        <article class="card card-yana reveal" style="transition-delay:.44s">
+          <div class="card-stripe"></div>
+          <span class="card-sticker">❤️</span>
+          <div class="card-inner">
+            <div class="card-author">
+              <div class="card-avatar"><img src="photos/Yana.png" alt="Yana"></div>
+              <div>
+                <div class="card-name">Yana</div>
+              </div>
+            </div>
+            <p class="card-msg">Dear Albina & Anna, Sincere congratulations on your birthdays! Wishing you a wonderful year ahead filled with happiness, inspiration, and continued success. May the school keep growing and reaching new heights. Warmest wishes. ❤️❤️</p>
+          </div>
+        </article>
+
+        <article class="card card-mariam reveal" style="transition-delay:.6s">
+          <div class="card-stripe"></div>
+          <span class="card-sticker">🥳</span>
+          <div class="card-inner">
+            <div class="card-author">
+              <div class="card-avatar"><img src="photos/mariamg.png" alt="Mariam Gogichaishvili"></div>
+              <div>
+                <div class="card-name">Mariam Gogichaishvili</div>
+              </div>
+            </div>
+            <p class="card-msg">Happy Birthday Albina & Anna! 🥳 Wishing you a wonderful year ahead filled with continued success, good health, and great achievements. Enjoy your special day ❤️</p>
+          </div>
+        </article>
+
+        <article class="card card-anastasia reveal" style="transition-delay:.68s">
+          <div class="card-stripe"></div>
+          <span class="card-sticker">❤️</span>
+          <div class="card-inner">
+            <div class="card-author">
+              <div class="card-avatar"><img src="photos/Anastasia.jpeg" alt="Anastasia"></div>
+              <div>
+                <div class="card-name">Anastasia</div>
+              </div>
+            </div>
+            <p class="card-msg">Happy birthday! Wishing you many blessings. Thanks for being with us, supporting and loving us. May this year bring you joy, strength and many reasons to smile ❤️</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ── CLOSING BANNER ─────────────────────── -->
+    <div class="closing reveal">
+      <div class="closing-left">
+        <div class="closing-overline">From the whole Robocode family 🎊</div>
+        <h2 class="closing-headline">
+          Wishing you the<br>most <span class="y">brilliant</span> year yet!!!
+        </h2>
+      </div>
+      <div class="closing-right">
+        <div class="closing-hearts">💙💛</div>
+      </div>
+    </div>
+
+  </div><!-- /page -->
+
+  <footer>Happy Birthday, Albina &amp; Anna — Robocode Georgia</footer>
+
+  <script>
+    const obs = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } }),
+      { threshold: 0.08, rootMargin: '0px 0px -32px 0px' }
+    );
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // Splash countdown
+    const splash   = document.getElementById('splash');
+    const countEl  = document.getElementById('splash-count');
+    let n = 3;
+
+    function tick() {
+      countEl.textContent = n;
+      countEl.classList.remove('pop');
+      void countEl.offsetWidth;
+      countEl.classList.add('pop');
+
+      if (n === 1) {
+        // after showing "1", trigger the split
+        setTimeout(() => {
+          splash.classList.add('open');
+          setTimeout(() => splash.remove(), 800);
+        }, 800);
+        return;
+      }
+      n--;
+      setTimeout(tick, 900);
+    }
+
+    setTimeout(tick, 200);
+  </script>
+
+</body>
+</html>
